@@ -1,0 +1,21 @@
+name: Patch submission
+description: Make changes to the Atlas data after using the website
+labels: ["atlas data: patch"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Make sure you have prepared your JSON data that you get after editing. If you haven't, [CONTRIBUTING.md](https://github.com/placeAtlas/atlas-2023/blob/master/CONTRIBUTING.md) has a guide for editing an existing entry.
+  - type: textarea
+    id: description
+    attributes:
+      label: Summary of changes
+      description: A summary of what is being updated/changed.
+  - type: textarea
+    id: json
+    attributes:
+      label: Patch
+      description: Upon editing, please copy the exported JSON-formatted patch. This will be automatically formatted into code, so no need for backticks.
+      render: json
+    validations:
+      required: true
