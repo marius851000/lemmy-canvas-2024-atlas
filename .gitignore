@@ -16,7 +16,8 @@ combined.js
 
 # Build files
 node_modules/
-dist*/
+/dist*/
+/result
 
 # Cache folders
 *.pyc
