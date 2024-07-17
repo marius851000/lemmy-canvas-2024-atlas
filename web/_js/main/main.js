@@ -530,28 +530,30 @@ function generateAtlasAll(atlas = atlasAll) {
 // Notice system
 
 const noticeEl = document.querySelector("#headerNotice")
-const noticeButton = noticeEl.querySelector('[role=button]')
-const noticeText = noticeEl.querySelector('p').textContent.trim()
+if (noticeEl) {
+	const noticeButton = noticeEl.querySelector('[role=button]')
+	const noticeText = noticeEl.querySelector('p').textContent.trim()
 
-const resizeGlobalTopPadding = () => {
-	document.body.style.setProperty("--global-top-padding", noticeEl.offsetHeight + 'px')
-}
-
-if (window.localStorage.getItem('announcement-closed')) {
-	window.localStorage.setItem('closed-notice', window.localStorage.getItem('announcement-closed'))
-	window.localStorage.removeItem('announcement-closed')
-}
-
-if (noticeText && noticeText !== window.localStorage.getItem('closed-notice')) {
-	noticeButton.click()
-	setTimeout(() => {
+	const resizeGlobalTopPadding = () => {
 		document.body.style.setProperty("--global-top-padding", noticeEl.offsetHeight + 'px')
-	}, 500)
-	window.addEventListener('resize', resizeGlobalTopPadding)
-}
+	}
 
-noticeEl.querySelector('[role=button]').addEventListener('click', () => {
-	window.localStorage.setItem('closed-notice', noticeText)
-	window.removeEventListener('resize', resizeGlobalTopPadding)
-	document.body.style.setProperty("--global-top-padding", null)
-})
+	if (window.localStorage.getItem('announcement-closed')) {
+		window.localStorage.setItem('closed-notice', window.localStorage.getItem('announcement-closed'))
+		window.localStorage.removeItem('announcement-closed')
+	}
+
+	if (noticeText && noticeText !== window.localStorage.getItem('closed-notice')) {
+		noticeButton.click()
+		setTimeout(() => {
+			document.body.style.setProperty("--global-top-padding", noticeEl.offsetHeight + 'px')
+		}, 500)
+		window.addEventListener('resize', resizeGlobalTopPadding)
+	}
+
+	noticeEl.querySelector('[role=button]').addEventListener('click', () => {
+		window.localStorage.setItem('closed-notice', noticeText)
+		window.removeEventListener('resize', resizeGlobalTopPadding)
+		document.body.style.setProperty("--global-top-padding", null)
+	})
+}
