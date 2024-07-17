@@ -1,32 +1,38 @@
-[     {
+[    {
 	"id": -1,
-	"name": "i",
-	"description": "test",
-	"links": {},
+	"name": "a",
+	"description": "b",
+	"links": {
+		"website": [
+			"https://example.org"
+		],
+		"discord": [
+			"123214"
+		],
+		"subreddit": [
+			"example"
+		]
+	},
 	"path": {
 		"0": [
 			[
-				406,
-				263
+				331,
+				298
 			],
 			[
-				501,
-				288
+				382,
+				413
 			],
 			[
-				383,
-				326
-			],
-			[
-				356,
-				243
+				518,
+				247
 			]
 		]
 	},
 	"center": {
 		"0": [
-			401,
-			291
+			394,
+			328
 		]
 	}
 }]
