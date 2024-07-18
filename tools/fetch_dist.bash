@@ -9,7 +9,7 @@ DIST_DIR=$(pwd)/web/_js/dist
 BOOTSTRAP_TEMP=$(mktemp -d)
 echo fetching bootstrap with temp dir $BOOTSTRAP_TEMP
 cd $BOOTSTRAP_TEMP
-wget https://github.com/twbs/bootstrap/releases/download/v5.3.3/bootstrap-5.3.3-dist.zip -O dist.zip
+wget https://github.com/twbs/bootstrap/releases/download/v5.1.3/bootstrap-5.1.3-dist.zip -O dist.zip
 unzip dist.zip
 cp bootstrap-*-dist/js/bootstrap.bundle.min.* $DIST_DIR
 rm -r $BOOTSTRAP_TEMP
