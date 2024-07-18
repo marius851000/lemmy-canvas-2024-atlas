@@ -9,7 +9,7 @@
     {
 			packages = rec {
 				website = pkgs.stdenvNoCC.mkDerivation {
-					pname = "lemmy-atlas-website";
+					pname = "fediverse-canvas-atlas-website";
 					version = "TODO-use-git";
 
 					dontUnpack = true;

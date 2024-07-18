@@ -2,22 +2,22 @@
 // Please also check code indicated with "@instanceonly" outside this file.
 // TODO: Avoid having instance-only code inside the main scripts to make updating easier.
 
-//TODO:lemmy adaptation
-const prodDomain = "templemmy.mariusdavid.fr"
+//TODO:canvas adaptation
+const prodDomain = "canvas.mariusdavid.fr"
 window.prodDomain = prodDomain
 
-const instanceId = "lemmy2024"
+const instanceId = "canvas2024"
 window.instanceId = instanceId
 
-//TODO:lemmy adaptation
+//TODO:canvas adaptation
 const instanceSubreddit = "none"
 window.instanceSubreddit = instanceSubreddit
 
-//TODO:lemmy adaptation
+//TODO:canvas adaptation
 const instanceRepo = "todo"
 window.instanceRepo = instanceRepo
 
-const pageTitle = "The 2024 Lemmy canvas Atlas"
+const pageTitle = "The 2024 Fediverse canvas Atlas"
 window.pageTitle = pageTitle
 
 const canvasSize = {
@@ -50,10 +50,10 @@ const variationsConfig = {
 		versions: [
 			{
 				timestamp: "Final",
-				url: "./_img/lemmycanvas/final.png",
+				url: "./_img/fedicanvas/final.png",
 			}
 		],
-		//TODO:lemmy adaptation
+		//TODO:canvas adaptation
 		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true"><polygon points="154 0 154 38 39 38 39 192 0 192 0 0"/><polygon points="192 38 192 192 77 192 77 153 154 153 154 38"/><rect x="77" y="77" width="38" height="38"/></svg>'
 
 	}
@@ -442,7 +442,7 @@ const externalLinksConfig = [
 console.info(`%cThe 2023 r/place Atlas
 %cCopyright (c) 2017 Roland Rytz <roland@draemm.li>
 Copyright (c) 2023 Place Atlas Initiative and contributors
-Copyright (c) 2024 Lemmy canvas atlas contributors
+Copyright (c) 2024 Fediverse canvas atlas contributors
 Licensed under AGPL-3.0 (https://2023.place-atlas.stefanocoding.me/license.txt)
 
 https://2023.place-atlas.stefanocoding.me/
