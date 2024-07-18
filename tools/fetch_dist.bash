@@ -23,3 +23,16 @@ mkdir -p $DIST_DIR/bootstrap-icons-font/fonts
 cp -r bootstrap-icons-*/font/fonts/* $DIST_DIR/bootstrap-icons-font/fonts
 cp -r bootstrap-icons-*/font/bootstrap-icons.min.css $DIST_DIR/bootstrap-icons-font/bootstrap-icons.min.css
 rm -r $BOOTSTRAP_ICONS_TEMP
+
+# That’s what the npm repo recommend
+echo "fetching bootstrap-dark"
+wget "https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" -O $DIST_DIR/bootstrap-dark.min.css
+
+# That’s also what the npm repo recommend, but we pin a version
+echo "fetching pwa-update"
+wget https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate@0.2.1/dist/pwa-update.js -O $DIST_DIR/pwa-update.js
+
+# This one doesn’t specify this as upstream, but that’s was present before when it didn’t fetched a copy of the deps, so I’m just gonna trust it
+# ok. This one does fetch data from a google server in the script. Might need more digging, but I’ll keep this as-is for now.
+echo "fetching workbox-sw"
+wget https://cdn.jsdelivr.net/npm/workbox-sw@6.5.4/build/workbox-sw.js -O $DIST_DIR/workbox-sw.js
