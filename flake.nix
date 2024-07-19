@@ -16,7 +16,8 @@
 
 					installPhase = ''
 						mkdir -p $out
-						cp -r ${./web}/* $out/
+						cp -r ${./.}/web/* $out/
+						${pkgs.python3}/bin/python ${./.}/tools/merge_data.py ${./.}/entries $out/atlas.json
 					'';
 				};
 				default = website;

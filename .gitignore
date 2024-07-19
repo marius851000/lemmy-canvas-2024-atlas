@@ -18,6 +18,7 @@ combined.js
 node_modules/
 /dist*/
 /result
+/web/atlas.json
 
 # Cache folders
 *.pyc
