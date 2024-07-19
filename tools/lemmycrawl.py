@@ -30,7 +30,10 @@ class LemmyPostProcessor:
 	def push_entry(self, content):
 		id = None
 		if content["id"] == -1:
-			id = random.randint(0, 9999999999)
+			id = None
+			while id is None or id in self.id_to_name:
+				id = random.randint(0, 9999999999)
+			content["id"] = id
 		else:
 			id = content["id"]
 		
