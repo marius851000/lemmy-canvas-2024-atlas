@@ -11,23 +11,30 @@ def slugify(s):
 	s = re.sub(r'^-+|-+$', '-', s)
 	return s
 
-class LemmyPostProcessor:
+class EntryManager:
 	def __init__(self):
 		self.folder = "entries/"
 		self.load_data()
 	
 	def load_data(self):
 		self.id_to_name = {}
+		self.combined_source_list = {}
 		for filename in os.listdir(self.folder):
 			path = os.path.join(self.folder, filename)
-			post = None
+			entry = None
 			with open(path, "r") as f:
-				post = json.load(f)
-			if post["id"] in self.id_to_name:
-				raise BaseException("Duplicate ID: " + str(post["id"]))
-			self.id_to_name[post["id"]] = filename
+				entry = json.load(f)
+			if entry["id"] in self.id_to_name:
+				raise BaseException("Duplicate ID: " + str(entry["id"]))
+			self.id_to_name[entry["id"]] = filename
+			if "source_list" in entry:
+				for (source_name, source_list) in entry["source_list"].items():
+					if source_name in self.combined_source_list:
+						self.combined_source_list[source_name].extend(source_list)
+					else:
+						self.combined_source_list[source_name] = source_list
 
-	def push_entry(self, content):
+	def push_entry(self, content, source_name = None, source_id = None):
 		id = None
 		if content["id"] == -1:
 			id = None
@@ -47,28 +54,30 @@ class LemmyPostProcessor:
 		
 		self.id_to_name[id] = name
 
+		if source_name is not None and source_id is not None:
+			if "source_list" not in content:
+				content["source_list"] = {}
+
+			if source_name in content["source_list"]:
+				content["source_list"][source_name].append(source_id)
+			else:
+				content["source_list"][source_name] = [source_id]
+			
+			if source_name in self.combined_source_list:
+				self.combined_source_list[source_name].append(source_id)
+			else:
+				self.combined_source_list[source_name] = [source_id]
+
 		with open(os.path.join(self.folder, name), "w") as f:
 			json.dump(content, f, indent=4)
-
-
-	def process_post(self, post_body):
-		post_id = post_body["id"]
-		post_body = post_body["body"]
-
-		post_json = None
-		try:
-			post_json = json.loads(post_body)
-		except:
-			print("Post does not contain valid JSON: " + str(post_id))
-			return
-		
-		self.push_entry(post_json)
-
-
-post_processor = LemmyPostProcessor()
-a = json.load(open("tools/test_post.json", "r"))["posts"][0]["post"]
-
-post_processor.process_post(a)
+	
+	def entry_by_id_if_exist(self, id):
+		return self.id_to_name.get(id)
+	
+	def is_post_processed(self, source_name, source_id):
+		if source_name in self.combined_source_list:
+			return source_id in self.combined_source_list[source_name]
+		return False
 
 """read_ids = set()
 with open("../data/lemmy_read_ids.txt", "r") as f:
