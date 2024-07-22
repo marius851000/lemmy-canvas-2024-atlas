@@ -16,7 +16,6 @@ class LemmyFetcher:
 		for filename in os.listdir("processed_posts"):
 			self.read_ids.add(filename)
 		
-		# from env variable variable
 		login_req = requests.post("https://toast.ooo/api/v3/user/login", json={
 			"username_or_email": os.environ.get("LEMMY_USERNAME"),
 			"password": os.environ.get("LEMMY_PASSWORD"),
@@ -30,13 +29,13 @@ class LemmyFetcher:
 	def process_post(self, post_body, make_pr = False):
 		post_id = post_body["id"]
 
-		"""if str(post_id) in self.read_ids:
+		if str(post_id) in self.read_ids:
 			print("Post already processed: " + str(post_id))
 			return
 		
 		if self.entry_manager.is_post_processed("lemmy", post_id):
 			print("Post already used in an entry: " + str(post_id))
-			return"""
+			return
 		
 		if "body" not in post_body:
 			print("Post does not contain body: " + str(post_id))

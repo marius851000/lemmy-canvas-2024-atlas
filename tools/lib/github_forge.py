@@ -27,8 +27,8 @@ class GithubForge(ForgeBase):
 	def does_pr_already_exist(self, from_branch):
 		self.load_if_needed()
 
-		print(self.repo_name + ":" + from_branch)
-		for pr in self.repo.get_pulls(state="open", head=from_branch):
+		print("check PR for " + self.owner_name + ":" + from_branch)
+		for pr in self.repo.get_pulls(state="open", head=self.owner_name + ":" + from_branch):
 			return pr.html_url
 
 		return False
