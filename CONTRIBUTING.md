@@ -2,23 +2,26 @@
 
 This project is open-source, and contributions are welcome. In fact, the Atlas relies on user contributions.
 
-You may contribute to the project by submitting a Pull Request on the GitHub repo or sending your submissions through [Reddit](https://www.reddit.com/r/placeAtlas2023). Other than that, you can get help from [Discord](https://discord.gg/pJkm23b2nA) or [Reddit](https://www.reddit.com/r/placeAtlas2023).
+You may contribute to the project by submitting a Pull Request on the GitHub repo or sending your submissions through [Lemmy](https://toast.ooo/c/2024lemmycanvasatlas). Other than that, you can get help from [Matrix](https://matrix.to/#/#lemmy-canvas-atlas-discussion:mariusdavid.fr) or [Lemmy](https://toast.ooo/c/2024lemmycanvasatlas).
 
 ## New Atlas entries
 
-To contribute to the map, we require a certain format for artwork region and labels. This can be generated on [the drawing mode](https://2023.place-atlas.stefanocoding.me?mode=draw) on the website. 
+To contribute to the map, we require a certain format for artwork region and labels. This can be generated on [the drawing mode](https://atlas.mariusdavid.fr/?mode=draw) on the website. 
 
-To add a new entry, go to [the drawing mode](https://2023.place-atlas.stefanocoding.me?mode=draw) and draw a shape/polygon around the region you'd like to describe. You can use the <kbd>Undo</kbd>, <kbd>Redo</kbd>, and <kbd>Reset</kbd> buttons to help you creating a good polygon. Make sure that the lines you're drawing don't form a [self-intersecting polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Complex_polygon.svg/288px-Complex_polygon.svg.png).
+To add a new entry, go to [the drawing mode](https://atlas.mariusdavid.fr/?mode=draw) and draw a shape/polygon around the region you'd like to describe. You can use the <kbd>Undo</kbd>, <kbd>Redo</kbd>, and <kbd>Reset</kbd> buttons to help you creating a good polygon. Make sure that the lines you're drawing don't form a [self-intersecting polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Complex_polygon.svg/288px-Complex_polygon.svg.png).
+
+You can also edit existing entries. To do that, [enter the normal mode](https://atlas.mariusdavid.fr/), select the entry you want to edit, then click `Edit`. To retrace it, you can click `Add Period`, then `Delete` the old first Period.
 
 If you want to see which areas of the canvas do not have entries yet, select "Highlight Empty" to hide areas that already have entries.
 
-Multiple periods can be added to represent the changing state of the artwork on different times. You can set the start and end period, as well as chosing the appropriate canvas variations. You can also copy the polygon from one period to the other, duplicating a period to be edited later, as well as deleting a period (if there is more than one). An alert is also shown if there are errors that needed attention.
-
 When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will now be able to enter some information about the entry:
 
+//TODO:canvas adaptation: implement Lemmy and Matrix links actually
 - **Name**: A short, descriptive name.
-- **Description**: A short description that can be understood by somebody not familiar with the topic. If you were involved in drawing this artwork, you may include the meta, describing the process of drawing the artwork in the event. To include lengthy, additional information, consider creating a page on [the r/place Wiki](https://place-wiki.stefanocoding.me/).
+- **Description**: A short description that can be understood by somebody not familiar with the topic. If you were involved in drawing this artwork, you may include the meta, describing the process of drawing the artwork in the event.
 - **Links**: Some links that are most relevant to the topic, and/or regarding the process of the drawing the artwork in the event.
+	- **Lemmy**: A Lemmy community or server, in the form of an URL
+	- **Matrix**: A matrix room id of the organizers, in the form of `#room_id:server.tld`
 	- **Website**: If you're describing a project, the project's main website would be suitable here.
 	- **Subreddit**: Format it like `r/subreddit`.
 	- **Discord**: Write the invite code, that the invite link without the `discord.gg/` part.
@@ -27,68 +30,30 @@ All fields but the name are optional. For example, a country flag doesn't necess
 
 Once you've entered all the information, you'll be presented with a pop-up window containing some [JSON](https://en.wikipedia.org/wiki/JSON)-formatted data. This is the patch that you are going to submit. Depending on the method, there are two preferred methods. 
 
-### Through Reddit
+### Through Lemmy
 
-You can press the <kbd>Post Direct to Reddit</kbd> button, which will open a page with the title and body already been filled for you. You don't need to change anything what has been prepared.
+You will need to post that message to the `!2024lemmycanvasatlas@toast.ooo` community via Lemmy (or another Activity-Pub powered service that allow long enought messages).
 
-If that didn't work, copy the entire JSON text and [create a new text post on the subreddit](https://www.reddit.com/r/placeAtlas2023/submit). You don't need to add any other text; just directly send the patch. 
+Past the whole JSON file in the body, and then post it. Eventually, a bot should answer that your post has been processed (or not) in less than 30 minutes. If that does not happen after 1 hour, then this is a bug, and you can report it. You can also use the second contributionn method.
 
-Remember to flair your post with <kbd>New Entry</kbd>. On New Reddit, click the <kbd>Flair</kbd> button on the bottom part, and select <kbd>New Entry</kbd>. On Old Reddit, click the <kbd>select</kbd> button on the "choose a flair" section instead.
+### Through GitHub (TODO:lemmy adapatation DOCUMENTATION UNFINISHED: WHAT ABOUT THE ID AND REPLACING?)
 
-### Through GitHub
-
-If you know about Git and how to create a pull request on GitHub, you can try create a patch that will be merged, along with other patches, by one of the members.
+If you know about Git and how to create a pull request on GitHub, you can create a patch that will be merged as-is in the repo.
 
 You can try pressing the <kbd>Submit Direct to GitHub</kbd> button, which will open a page with the patch file already been prepared to you. 
 
-If that didn't work, copy the entire JSON text and [create a new patch file to the repository through GitHub](https://github.com/placeAtlas/atlas-2023/new/cleanup/data/patches?filename=gh-0000-ENTRY-NAME-HERE.json
-). Upon opening, replace the `ENTRY-NAME-HERE` into the name of the entry (with the slug format, if possible, e.g. `foo-bar`). You don't need to add any other text; just directly send the patch. 
+If that didn't work, copy the entire JSON text and [create a new patch file to the repository through GitHub](https://github.com/marius851000/lemmy-canvas-2024-atlas/new/main/entries?filename=ENTRY-SLUG-HERE.json
+). Upon opening, replace the `ENTRY-SLUG-HERE` into the title of the entry (with the slug format, if possible, e.g. `foo-bar`). You don't need to add any other text; just directly send the patch. 
 
-If you haven't forked the repository, you would need to fork it with the provided instruction shown on the page. You may add attribution by adding an `_author` key, explained in the next paragraphs. After that, you can press <kbd>Submit changes</kbd>, add follow the steps to create a pull request within GitHub. 
+If you haven't forked the repository, you would need to fork it with the provided instruction shown on the page. You may add attribution by adding an `_author` key, explained in the next paragraphs.
 
 The commit message and description doesn't matter, but you may change it into something more descriptive to make it easier for checking (e.g. <kbd>Add Foo Bar</kbd> or <kbd>Edit Foo Bar</kbd> for the commit message). However, we suggest you to edit the title (at least) and the description of the pull request, containing the changes that you want to do (something like <kbd>Add Foo Bar</kbd> or <kbd>Edit Foo Bar</kbd> for the title, similar to the commit message, is also sufficient).
 
-If you can fork and clone the repository, you can use the provided `tools/create_patch.py` script. This script helps you to create a working patch, along with additional data such as your name for attribution sakes. Simply run the script inside the `tools/` folder and follow the given instructions. 
-
-If you want to do this manually (e.g. you don't have Python), you can create a patch by creating a `.json` file inside `data/patches`, with the content of the JSON-formatted data that is given earlier. You may add attribution by adding an `_author` key with the value of your Reddit username or your GitHub username plus a `gh:` prefix.
-
-```json5
-{
-	"id": -1,                  // -1 signififies a new entry.
-	// ...
-	// Choose one of the folllowing:
-	"_author": "Hans5958_",    // Links to https://reddit.com/user/Hans5958_
-	"_author": "gh:Hans5958",  // Links to https://github.com/Hans5958
-}
-```
-
-Once you have successfully created the patch, the file can be committed, and a pull request towards the `cleanup` branch can be created. A member will merge the pull request if it is adequate.
-
-## Edits to Atlas entries
-
-Other than adding new ones, you can edit existing atlas entries.
-
-### Using the web interface
-
-You can use the website to edit single entries easily. On the website, click <kbd>Edit</kbd> on an entry box. Afterwards, you are now on the drawing mode, editing the entry, in which you can follow the same instructions as [when creating a new entry](#new-atlas-entries). 
-
-Upon submitting, if you use Reddit, please flair it as <kbd>Edit Entry</kbd> instead. The method stays the same if you use GitHub.
-
-As an alternative, you can also submit an issue on GitHub using [this form](https://github.com/placeAtlas/atlas-2023/issues/new?assignees=&labels=entry+update&template=edit-entry.yml) or report it on our Discord server.
-
-### Manually by direct edits
-
-Direct edits to the `web/atlas.json` are also welcome on this repository using Git through GitHub. You may use Git or GitHub for bulk or large-scale changes, such as removing duplicates, or doing those that are not possible by using patches, such as removing an entry. Keep in mind that this may causes conflicts, so only do it when necessary. 
-
-`web/atlas.json` is where the Atlas data is located, in which you can edit on GitHub. The next section includes an example of an entry.
-
-Upon creating a fork of this repository and pushing the changes, create a pull request towards the `cleanup` branch. A member will merge the pull request if it is adequate.
-
-To help find duplicates, [use the Overlap mode](https://2023.place-atlas.stefanocoding.me?mode=overlap).
+Once you have successfully created the patch, the file can be committed, and a pull request towards the `main` branch can be created. A member will merge the pull request if it is adequate.
 
 ### Example
 
-Hereforth is an example of the structured entry data. The example has been expanded, but when editing directly, please save it in the way so each line is an entry that is minified. The `tools/aformatter.py` script can help you with this.
+Hereforth is an example of the structured entry data (from the original r/place 2023 Atlas)
 
 ```json5
 {
@@ -126,6 +91,8 @@ Other than contributing to the Atlas data, code contributions are also accepted.
 
 This website is built using classic HTML 5 (no JS frameworks such as Vue, React, etc are used). Bootstrap 5 is used as a CSS framework.
 
+You first need to merge the atlas data. That can be done, by being in the root folder, by running ``python3 tools/merge_data.py ./entries ./web/atlas.json``. If you can’t run python and don’t need to test entry edition, you may instead download the `atlas.json` file from [https://atlas.mariusdavid.fr/atlas.json](https://atlas.mariusdavid.fr/atlas.json) and place it at `web/atlas.json`.
+
 Opening the HTML file on your browser is adequate enough to edit. If it doesn't work, you can try running a local HTTP server.
 
 ```sh
@@ -143,8 +110,10 @@ npx serve                         # Node.js (serve)
 
 The `tools` folder have various scripts for the maintainance of the project, such as...
 
-- Adding submitted entries from the subreddit
+- Adding submitted entries from Lemmy
 - Formatting/tidying up the data 
-- Building the site for production
+- Building the site for production (which is not used for now)
 
-The tools may built with various programming languages, but mostly it is made in Python (3).
+The tools may built with various programming languages, but mostly it is made in Python 3.
+
+Note that not all of the script are usefull in the context of this Lemmy Atlas.
