@@ -2,19 +2,17 @@
 // Please also check code indicated with "@instanceonly" outside this file.
 // TODO: Avoid having instance-only code inside the main scripts to make updating easier.
 
-//TODO:canvas adaptation
 const prodDomain = "canvas.mariusdavid.fr"
 window.prodDomain = prodDomain
 
 const instanceId = "canvas2024"
 window.instanceId = instanceId
 
-//TODO:canvas adaptation
-const instanceSubreddit = "none"
+const instanceSubreddit = null
 window.instanceSubreddit = instanceSubreddit
 
 //TODO:canvas adaptation
-const instanceRepo = "todo"
+const instanceRepo = "https://github.com/marius851000/lemmy-canvas-2024-atlas"
 window.instanceRepo = instanceRepo
 
 const pageTitle = "The 2024 Fediverse canvas Atlas"

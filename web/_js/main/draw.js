@@ -92,6 +92,7 @@ function slugify(text) {
 		.normalize('NFKD')
 		.toLowerCase()
 		.trim()
+		.replace(' ', '_')
 		.replace(/\s+/g, '-')
 		.replace(/[^\w\-]+/g, '')
 		.replace(/\-+/g, '-');
@@ -342,37 +343,41 @@ function initDraw() {
 
 		// Reddit
 
-		let redditPostJsonString = "    " + prettyJsonString.split("\n").join("\n    ")
-		let redditPostUrl = `https://www.reddit.com/r/${instanceSubreddit}/submit?selftext=true&title=`
-		if (exportObject.id === -1) redditPostUrl += `✨%20${encodeURIComponent(exportObject.name ?? entry.name)}`
-		else redditPostUrl += `✏%20${encodeURIComponent(exportObject.name ?? entry.name)}`
-		redditPostUrl += "&text="
+		if (instanceSubreddit != null) {
+			let redditPostJsonString = "    " + prettyJsonString.split("\n").join("\n    ")
+			let redditPostUrl = `https://www.reddit.com/r/${instanceSubreddit}/submit?selftext=true&title=`
+			if (exportObject.id === -1) redditPostUrl += `✨%20${encodeURIComponent(exportObject.name ?? entry.name)}`
+			else redditPostUrl += `✏%20${encodeURIComponent(exportObject.name ?? entry.name)}`
+			redditPostUrl += "&text="
 
-		if (encodeURIComponent(redditPostJsonString).length > 7579 - redditPostUrl.length) {
-			redditPostJsonString = "    " + miniJsonString
-		}
+			if (encodeURIComponent(redditPostJsonString).length > 7579 - redditPostUrl.length) {
+				redditPostJsonString = "    " + miniJsonString
+			}
 
-		redditPostUrl += encodeURIComponent(redditPostJsonString)
-		if (encodeURIComponent(redditPostUrl).length > 7579) {
-			// redditPostButton.classList.add("disabled")
-			// redditPostButton.ariaDisabled = true
-			redditPostButton.dataset.bsToggle = "tooltip"
-			redditPostButton.dataset.bsTitle = "This may not work due to the length of the entry. If needed, please copy manually."
-			if (!redditPostTooltip) redditPostTooltip = new bootstrap.Tooltip(redditPostButton)
+			redditPostUrl += encodeURIComponent(redditPostJsonString)
+			if (encodeURIComponent(redditPostUrl).length > 7579) {
+				// redditPostButton.classList.add("disabled")
+				// redditPostButton.ariaDisabled = true
+				redditPostButton.dataset.bsToggle = "tooltip"
+				redditPostButton.dataset.bsTitle = "This may not work due to the length of the entry. If needed, please copy manually."
+				if (!redditPostTooltip) redditPostTooltip = new bootstrap.Tooltip(redditPostButton)
+			} else {
+				// redditPostButton.classList.remove("disabled")
+				// redditPostButton.ariaDisabled = false
+				redditPostButton.dataset.bsTitle = ""
+			}
+			redditPostButton.href = redditPostUrl
+
+			if (exportObject.id === -1) document.getElementById("redditFlair").textContent = "New Entry"
+			else document.getElementById("redditFlair").textContent = "Edit Entry"
 		} else {
-			// redditPostButton.classList.remove("disabled")
-			// redditPostButton.ariaDisabled = false
-			redditPostButton.dataset.bsTitle = ""
+			redditPostButton.classList.add("collapse")
 		}
-		redditPostButton.href = redditPostUrl
-
-		if (exportObject.id === -1) document.getElementById("redditFlair").textContent = "New Entry"
-		else document.getElementById("redditFlair").textContent = "Edit Entry"
 
 		// GitHub
 
 		let githubPostJsonString = prettyJsonString
-		let githubPostUrl = `${instanceRepo}/new/cleanup/data/patches?filename=gh-${[...Array(4)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')}-${slugify(exportObject.name ?? entry.name)}.json&value=`
+		let githubPostUrl = `${instanceRepo}/new/main/entries?filename=${slugify(exportObject.name ?? entry.name)}.json&value=`
 
 		if (encodeURIComponent(githubPostJsonString).length > 8192 - githubPostUrl.length) {
 			githubPostJsonString = miniJsonString
