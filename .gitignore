@@ -1,6 +1,7 @@
 # Secrets
 credentials
 praw
+secrets.fish
 
 # Temporary files
 temp-atlas.json
@@ -44,3 +45,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+
+processed_posts/

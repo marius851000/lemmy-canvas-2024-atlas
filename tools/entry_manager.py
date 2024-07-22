@@ -78,33 +78,3 @@ class EntryManager:
 		if source_name in self.combined_source_list:
 			return source_id in self.combined_source_list[source_name]
 		return False
-
-"""read_ids = set()
-with open("../data/lemmy_read_ids.txt", "r") as f:
-	for line in f.readlines():
-		if line.strip() == "":
-			continue
-		read_ids.add(int(line.strip()))
-
-highest_post_id = max(read_ids) or 0
-
-next_page = None
-
-while True:
-	req = requests.get("https://toast.ooo/api/v3/post/list", params={
-		"next_page": next_page,
-		"community_name": "2024lemmycanvasatlas",
-		"type_": "All",
-		"sort": "New",
-	})
-	if req.status_code != 200:
-		raise BaseException("Request failed with code " + str(req.status_code))
-
-	data = req.json()
-
-	for post in data["posts"]:
-		print(post)
-
-		if post["i"]
-	
-	next_page = data["next_page"] """

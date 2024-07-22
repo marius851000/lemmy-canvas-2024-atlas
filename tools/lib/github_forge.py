@@ -29,16 +29,16 @@ class GithubForge(ForgeBase):
 
 		print(self.repo_name + ":" + from_branch)
 		for pr in self.repo.get_pulls(state="open", head=from_branch):
-			return True
+			return pr.html_url
 
 		return False
 	
 	def make_pr_between_branches(self, from_branch, to_branch, title, body):
 		self.load_if_needed()
 
-		self.repo.create_pull(
+		return self.repo.create_pull(
 			title = title,
 			base = to_branch,
 			head = from_branch,
 			body = body
-		)
+		).html_url
