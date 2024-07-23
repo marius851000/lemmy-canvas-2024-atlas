@@ -20,7 +20,7 @@ When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will
 - **Name**: A short, descriptive name.
 - **Description**: A short description that can be understood by somebody not familiar with the topic. If you were involved in drawing this artwork, you may include the meta, describing the process of drawing the artwork in the event.
 - **Links**: Some links that are most relevant to the topic, and/or regarding the process of the drawing the artwork in the event.
-	- **Lemmy**: A Lemmy community or server, in the form of an URL
+	- **Lemmy**: A Lemmy community, server or post in the form of an URL, `!community@example.com` or `@example.com`
 	- **Matrix**: A matrix room id of the organizers, in the form of `#room_id:server.tld`
 	- **Website**: If you're describing a project, the project's main website would be suitable here.
 	- **Subreddit**: Format it like `r/subreddit`.

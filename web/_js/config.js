@@ -363,6 +363,28 @@ window.useNumericalId = useNumericalId
 
 const externalLinksConfig = [
 	{
+		name: "Lemmy",
+		id: "lemmy",
+		generateLink: (link) => {
+			if (link.startsWith("@")) {
+				return "https://" + link + "/"
+			} else if (link.startsWith("!") && link.indexOf("@") !== -1) {
+				let community = link.substring(1).split("@")[0]
+				let host = link.split("@")[1]
+				return "https://" + host + "/c/" + community
+			} else {
+				return link
+			}
+		},
+		listingClass: "bi-mastodon", //TODO: lemmy adaptation: actually put a lemmy icon
+		generateListingName: (link) => link,
+		placeholder: "!community@example.org",
+		configureInputField: (inputField) => {
+			inputField.placeholder = "!community@example.com"
+			inputField.title = "Lemmy link using the !community@example.com format, a Lemmy domain using the @example.com format or a post with it’s url"
+		},
+	},
+	{
 		name: "Website",
 		id: "website",
 		generateLink: (link) => link,
@@ -375,7 +397,6 @@ const externalLinksConfig = [
 				return "Website"
 			}
 		},
-		displayHTML: "{urlid}",
 		placeholder: "https://example.org",
 		configureInputField: (inputField) => {
 			inputField.type = "url"
