@@ -5,6 +5,9 @@
 	"links": {
 		"lemmy": [
 			"!test@lemmy.mariusdavid.fr"
+		],
+		"matrix": [
+			"#canvas-general:aftermath.gg"
 		]
 	},
 	"path": {

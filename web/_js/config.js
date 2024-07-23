@@ -385,6 +385,19 @@ const externalLinksConfig = [
 		},
 	},
 	{
+		name: "Matrix",
+		id: "matrix",
+		generateLink: (link) => "https://matrix.to/#/" + link,
+		listingClass: "bi-chat-dots",
+		generateListingName: (link) => link,
+		placeholder: "#example:example.com",
+		configureInputField: (inputField) => {
+			inputField.placeholder = "#example:example.com"
+			inputField.title = "Link to a Matrix room or space, in the form of #example:example.com"
+			inputField.pattern = "#.*:.*"
+		}
+	},
+	{
 		name: "Website",
 		id: "website",
 		generateLink: (link) => link,
