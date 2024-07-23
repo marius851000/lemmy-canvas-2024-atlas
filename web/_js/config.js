@@ -11,7 +11,6 @@ window.instanceId = instanceId
 const instanceSubreddit = null
 window.instanceSubreddit = instanceSubreddit
 
-//TODO:canvas adaptation
 const instanceRepo = "https://github.com/marius851000/lemmy-canvas-2024-atlas"
 window.instanceRepo = instanceRepo
 
@@ -376,7 +375,7 @@ const externalLinksConfig = [
 				return link
 			}
 		},
-		listingClass: "bi-envelope", //TODO: lemmy adaptation: actually put a lemmy icon
+		listingClass: "bi-envelope", //TODO: canvas adaptation: actually put a lemmy icon
 		generateListingName: (link) => link,
 		placeholder: "!community@example.org",
 		configureInputField: (inputField) => {
@@ -388,7 +387,7 @@ const externalLinksConfig = [
 		name: "Matrix",
 		id: "matrix",
 		generateLink: (link) => "https://matrix.to/#/" + link,
-		listingClass: "bi-chat-dots",
+		listingClass: "bi-chat-dots", //TODO: canvas adaptation: actually put a Matrix, if any exist
 		generateListingName: (link) => link,
 		placeholder: "#example:example.com",
 		configureInputField: (inputField) => {

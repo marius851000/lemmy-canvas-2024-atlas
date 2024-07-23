@@ -6,9 +6,7 @@ This project is a fork of the [2023 r/place Atlas](https://github.com/placeAtlas
 
 This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
 
-//TODO:canvas adaptation:need hosting and more documentation.
-
-You can check out the website by visiting [2023.place-atlas.stefanocoding.me](https://2023.place-atlas.stefanocoding.me/). The subreddit, [r/placeAtlas2023](https://www.reddit.com/r/placeAtlas2023/), is available for communications via Reddit.
+You can check out the website by visiting [atlas.mariusdavid.fr](https://atlas.mariusdavid.fr/). We also have [Matrix room](https://matrix.to/#/#lemmy-canvas-atlas-discussion:mariusdavid.fr) or the [Lemmy community](https://toast.ooo/c/2024lemmycanvasatlas).
 
 ## Contributing
 
@@ -16,5 +14,4 @@ This project is open source, and contributions are welcome. In fact, the Atlas r
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to submit a new entry, edit existing entries, or contribute to the development of the codebase.
 
-//TODO:canvas adaptation:need new channels
-[The r/placeAtlas2023 subreddit](https://reddit.com/r/placeAtlas2023/) and [the Discord server](https://discord.gg/pJkm23b2nA) is also the place to submit all bug reports, feature requests, or questions.
+//TODO: canvas adapatation: adapt all the icons

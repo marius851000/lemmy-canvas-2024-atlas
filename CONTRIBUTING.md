@@ -16,7 +16,6 @@ If you want to see which areas of the canvas do not have entries yet, select "Hi
 
 When you're happy with the shape you've drawn, press <kbd>Finish</kbd>. You will now be able to enter some information about the entry:
 
-//TODO:canvas adaptation: implement Lemmy and Matrix links actually
 - **Name**: A short, descriptive name.
 - **Description**: A short description that can be understood by somebody not familiar with the topic. If you were involved in drawing this artwork, you may include the meta, describing the process of drawing the artwork in the event.
 - **Links**: Some links that are most relevant to the topic, and/or regarding the process of the drawing the artwork in the event.
