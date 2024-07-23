@@ -18,6 +18,7 @@
 						mkdir -p $out
 						cp -r ${./.}/web/* $out/
 						${pkgs.python3}/bin/python ${./.}/tools/merge_data.py ${./.}/entries $out/atlas.json
+						rm $out/about.html
 					'';
 				};
 				default = website;
