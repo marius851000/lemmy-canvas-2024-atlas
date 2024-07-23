@@ -376,7 +376,7 @@ const externalLinksConfig = [
 				return link
 			}
 		},
-		listingClass: "bi-mastodon", //TODO: lemmy adaptation: actually put a lemmy icon
+		listingClass: "bi-envelope", //TODO: lemmy adaptation: actually put a lemmy icon
 		generateListingName: (link) => link,
 		placeholder: "!community@example.org",
 		configureInputField: (inputField) => {
